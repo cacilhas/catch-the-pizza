@@ -1,8 +1,18 @@
 #!amulet
 local *
 
-delta = 32
+friction = 10
+delta = 32 + friction
 max = vec2 512, 512
+
+applyFriction = (v) ->
+    if v > 0
+        v -= friction
+        v = 0 if v < 0
+    if v < 0
+        v += friction
+        v = 0 if v > 0
+    v
 
 class Player
 
@@ -22,6 +32,8 @@ class Player
             dx += delta if \key_down"right"
             dy += delta if \key_down"up" or \key_down"rshift"
             dy -= delta if \key_down"down"
+            dx = applyFriction dx
+            dy = applyFriction dy
             @speed = math.clamp vec2(dx, dy), -max, max
 
             @pos += @speed * dt

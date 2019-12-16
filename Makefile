@@ -1,4 +1,4 @@
-VERSION= 1.0.0
+VERSION= $(shell awk '$$1 ~ /version/ { gsub(/"/, ""); print $$3; }' conf.moon)
 UNAME= $(shell uname | tr A-Z a-z)
 
 CC= moonc
