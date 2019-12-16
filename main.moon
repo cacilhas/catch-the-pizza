@@ -9,14 +9,17 @@ Pizza = assert require"pizza"
 
 win = am.window
     title: "Catch the Pizza"
-    width: 1024
-    height: 768
+    mode: "fullscreen"
     clear_color: vec4 1, 0, 0, 1
+
+timerX = win.left + 112
+scoreX = win.right - 52
+labelsY = win.top - 52
 
 with am
     win.scene = .group! ^ {
-        .translate(-400, 360) ^ .scale(2) ^ am.text("10.0", nil, "right")\tag"timer"
-        .translate(460, 360) ^ .scale(2) ^ am.text("00", nil, "right")\tag"score"
+        .translate(timerX, labelsY) ^ .scale(2) ^ am.text("10.0", nil, "right")\tag"timer"
+        .translate(scoreX, labelsY) ^ .scale(2) ^ am.text("00", nil, "right")\tag"score"
         .translate(0, 0)\tag"player" ^ .scale(4) ^ .sprite playerFacet
         .translate(0, 0)\tag"pizza" ^ .scale(4) ^ .sprite pizzaFacet
         .scale(4) ^ am.text("GAME OVER", vec4(0, 0, 0, 1))\tag"gameover"
