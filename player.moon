@@ -20,7 +20,7 @@ class Player
             dx, dy = @speed.x, @speed.y
             dx -= delta if \key_down"left"
             dx += delta if \key_down"right"
-            dy += delta if \key_down"up"
+            dy += delta if \key_down"up" or \key_down"rshift"
             dy -= delta if \key_down"down"
             @speed = math.clamp vec2(dx, dy), -max, max
 
