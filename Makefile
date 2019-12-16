@@ -2,7 +2,7 @@ VERSION= $(shell awk '$$1 ~ /version/ { gsub(/"/, ""); print $$3; }' conf.moon)
 UNAME= $(shell uname | tr A-Z a-z)
 
 CC= moonc
-RUN= amulet
+ENGINE= amulet
 SRC= $(wildcard *.moon)
 TARGET= $(SRC:.moon=.lua)
 ZIPFILE= pizza-$(VERSION)-$(UNAME).zip
@@ -20,7 +20,7 @@ export: $(ZIPFILE)
 
 test: $(TARGET)
 	@echo -n 'starting '
-	$(RUN)
+	$(ENGINE)
 
 
 clean:
@@ -36,4 +36,4 @@ mrproper: clean
 
 
 $(ZIPFILE): $(TARGET)
-	$(RUN) export -$(UNAME) .
+	$(ENGINE) export -$(UNAME) .
