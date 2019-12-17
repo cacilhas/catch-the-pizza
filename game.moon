@@ -18,8 +18,8 @@ class Game
         txTimer.text = "%.1f"\format @timer
 
     gameover: =>
-        return with res = @timer <= 0
-            if @playing and res
+        return with gameover = @timer <= 0
+            if @playing and gameover
                 @playing = false
                 @win.scene\action am.play "gameover.ogg"
 
