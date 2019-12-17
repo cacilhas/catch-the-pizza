@@ -5,17 +5,16 @@ CC= moonc
 ENGINE= amulet
 SRC= $(wildcard *.moon)
 TARGET= $(SRC:.moon=.lua)
-ZIPFILE= pizza-$(VERSION)-$(UNAME).zip
 RM= rm -f
 
 #-------------------------------------------------------------------------------
-.PHONY: clean install mrproper test
+.PHONY: clean install mrproper test linux darwin mac win windows
 
 
 all: $(TARGET)
 
 
-install: $(ZIPFILE)
+install: $(UNAME)
 
 
 test: $(TARGET)
@@ -28,12 +27,30 @@ clean:
 
 
 mrproper: clean
-	$(RM) $(ZIPFILE)
+	$(RM) pizza-*.zip
 
 
 %.lua: %.moon
 	$(CC) $<
 
 
-$(ZIPFILE): $(TARGET)
-	$(ENGINE) export -$(UNAME) .
+linux: pizza-$(VERSION)-linux.zip
+
+pizza-$(VERSION)-linux.zip: $(TARGET)
+	$(ENGINE) export -linux .
+
+
+darwin: mac
+
+mac: pizza-$(VERSION)-mac.zip
+
+pizza-$(VERSION)-mac.zip: $(TARGET)
+	$(ENGINE) export -mac .
+
+
+win: windows
+
+windows: pizza-$(VERSION)-windows.zip
+
+pizza-$(VERSION)-windows.zip: $(TARGET)
+	$(ENGINE) export -windows .
