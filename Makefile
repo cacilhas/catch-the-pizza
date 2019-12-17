@@ -5,7 +5,7 @@ CC= moonc
 ENGINE= amulet
 SRC= $(wildcard *.moon)
 TARGET= $(SRC:.moon=.lua)
-RM= rm -f
+RM= rm -rf
 
 #-------------------------------------------------------------------------------
 .PHONY: clean install mrproper test linux darwin mac win windows
@@ -27,7 +27,7 @@ clean:
 
 
 mrproper: clean
-	$(RM) pizza-*.zip
+	$(RM) pizza-*.zip pizza-*-android
 
 
 %.lua: %.moon
