@@ -23,7 +23,7 @@ test: $(TARGET)
 
 
 clean:
-	$(RM) *.lua
+	$(RM) $(TARGET)
 
 
 mrproper: clean
