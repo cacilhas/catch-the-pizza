@@ -13,9 +13,9 @@ class Game
         @player = player
         @food = food
 
-    connect: (txScore, txTimer) =>
-        txScore.text = tostring @score
-        txTimer.text = "%.1f"\format @timer
+    connect: (t) =>
+        t.score.text = tostring @score
+        t.timer.text = "%.1f"\format @timer
 
     gameover: =>
         return with gameover = @timer <= 0

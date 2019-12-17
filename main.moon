@@ -40,4 +40,6 @@ win.scene\action (scene) ->
         player\update am.delta_time
         player\connect scene"player"
         pizza\connect scene"pizza"
-        game\connect scene"score", scene"timer"
+        game\connect
+            score: scene"score"
+            timer: scene"timer"
