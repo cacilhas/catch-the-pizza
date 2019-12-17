@@ -9,13 +9,13 @@ ZIPFILE= pizza-$(VERSION)-$(UNAME).zip
 RM= rm -f
 
 #-------------------------------------------------------------------------------
-.PHONY: clean export mrproper test
+.PHONY: clean install mrproper test
 
 
 all: $(TARGET)
 
 
-export: $(ZIPFILE)
+install: $(ZIPFILE)
 
 
 test: $(TARGET)
