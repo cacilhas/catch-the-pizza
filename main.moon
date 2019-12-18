@@ -1,8 +1,8 @@
 #!amulet
 local *
 
-playerFacet = assert require"player-facet"
-pizzaFacet = assert require"pizza-facet"
+playerFacet = assert require"facet.player"
+pizzaFacet = assert require"facet.pizza"
 Game = assert require"game"
 Player = assert require"player"
 Pizza = assert require"pizza"

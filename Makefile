@@ -3,7 +3,8 @@ UNAME= $(shell uname | tr A-Z a-z)
 
 CC= moonc
 ENGINE= amulet
-SRC= $(wildcard *.moon)
+EXPORT= $(ENGINE) export -r
+SRC= $(wildcard *.moon */*.moon)
 TARGET= $(SRC:.moon=.lua)
 RM= rm -rf
 
@@ -37,7 +38,7 @@ mrproper: clean
 linux: pizza-$(VERSION)-linux.zip
 
 pizza-$(VERSION)-linux.zip: $(TARGET)
-	$(ENGINE) export -linux .
+	$(EXPORT) -linux .
 
 
 darwin: mac
@@ -45,7 +46,7 @@ darwin: mac
 mac: pizza-$(VERSION)-mac.zip
 
 pizza-$(VERSION)-mac.zip: $(TARGET)
-	$(ENGINE) export -mac .
+	$(EXPORT) -mac .
 
 
 win: windows
@@ -53,4 +54,4 @@ win: windows
 windows: pizza-$(VERSION)-windows.zip
 
 pizza-$(VERSION)-windows.zip: $(TARGET)
-	$(ENGINE) export -windows .
+	$(EXPORT) -windows .

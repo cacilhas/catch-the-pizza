@@ -21,7 +21,7 @@ class Game
         return with gameover = @timer <= 0
             if @playing and gameover
                 @playing = false
-                @win.scene\action am.play "gameover.ogg"
+                @win.scene\action am.play "resources/gameover.ogg"
 
 
     update: (dt) =>
@@ -40,7 +40,7 @@ class Game
         @timer -= dt
         @timer = math.clamp @timer, 0, 10
         if math.distance(@player.pos, @food.pos) < 64
-            @win.scene\action am.play "eaten.ogg"
+            @win.scene\action am.play "resources/eaten.ogg"
             @food\start!
             @score += 1
             @timer = 100 / (9 + @score)
