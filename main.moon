@@ -7,6 +7,8 @@ Game = assert require"game"
 Player = assert require"player"
 Pizza = assert require"pizza"
 
+math.randomseed os.time!
+
 win = am.window
     title: "Catch the Pizza"
     mode: "fullscreen"

@@ -26,9 +26,9 @@ class Game
 
     update: (dt) =>
         with @win
-            return \close! if \key_pressed"q" and (\key_down"lctrl" or \key_down"rctrl")
+            return \close! if \key_pressed"escape"
 
-        if @win\key_released"escape"
+        if @win\key_released"enter"
             @playing = true
             @timer = 10
             @score = 0
