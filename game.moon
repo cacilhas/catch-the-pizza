@@ -28,14 +28,14 @@ class Game
         with @win
             return \close! if \key_pressed"escape"
 
-        if @win\key_released"enter"
-            @playing = true
-            @timer = 10
-            @score = 0
-            @player.pos = vec2 0
-            @player.speed = vec2 0
-            @food\start!
-            return
+            if \key_released"enter" or \key_released"f5"
+                @playing = true
+                @timer = 10
+                @score = 0
+                @player.pos = vec2 0
+                @player.speed = vec2 0
+                @food\start!
+                return
 
         @timer -= dt
         @timer = math.clamp @timer, 0, 10
