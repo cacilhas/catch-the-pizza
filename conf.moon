@@ -3,7 +3,7 @@ export *
 title = "Catch the Pizza"
 author = "Rodrigo Cacilhas"
 shortname = "pizza"
-version = "1.0.2"
+version = "1.0.3"
 support_email = "batalema@cacilhas.info"
 copyright_message = "Copyright © 2019 Rodrigo Cacilhas."
 luavm = "luajit"
