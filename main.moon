@@ -31,17 +31,17 @@ player = Player win
 pizza = Pizza win
 game = Game win, player, pizza
 
-win.scene\action (scene) ->
+win.scene\action =>
     game\update am.delta_time
 
     if game\gameover!
-        scene"gameover".hidden = false
+        @"gameover".hidden = false
 
     else
-        scene"gameover".hidden = true
+        @"gameover".hidden = true
         player\update am.delta_time
-        player\connect scene"player"
-        pizza\connect scene"pizza"
+        player\connect @"player"
+        pizza\connect @"pizza"
         game\connect
-            score: scene"score"
-            timer: scene"timer"
+            score: @"score"
+            timer: @"timer"
