@@ -28,10 +28,18 @@ class Player
     update: (dt) =>
         with @win
             dx, dy = @speed.x, @speed.y
-            dx -= delta if \key_down"left"
-            dx += delta if \key_down"right"
-            dy += delta if \key_down"up" or \key_down"rshift"
-            dy -= delta if \key_down"down"
+            mouse = \mouse_delta! * delta
+
+            if mouse != vec2 0
+                dx += mouse.x
+                dy += mouse.y
+
+            else
+                dx -= delta if \key_down"left"
+                dx += delta if \key_down"right"
+                dy += delta if \key_down"up" or \key_down"rshift"
+                dy -= delta if \key_down"down"
+
             dx = applyFriction dx
             dy = applyFriction dy
             @speed = math.clamp vec2(dx, dy), -max, max

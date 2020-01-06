@@ -13,6 +13,7 @@ win = am.window
     title: "Catch the Pizza"
     mode: "fullscreen"
     clear_color: vec4 1, 0, 0, 1
+    lock_pointer: true
 
 timerX = win.left + 112
 scoreX = win.right - 52
