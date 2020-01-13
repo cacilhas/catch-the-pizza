@@ -5,14 +5,23 @@ friction = 10
 delta = 32 + friction
 max = vec2 512, 512
 
-applyFriction = (v) ->
-    if v > 0
-        v -= friction
-        v = 0 if v < 0
-    if v < 0
-        v += friction
-        v = 0 if v > 0
-    v
+applyFriction = =>
+    if @ > 0
+        @ -= friction
+        @ = 0 if @ < 0
+    if @ < 0
+        @ += friction
+        @ = 0 if @ > 0
+    @
+
+applyBoards = (win) =>
+    x, y = @x, @y
+    with win
+        x = .right if x < .left
+        x = .left if x > .right
+        y = .bottom if y > .top
+        y = .top if y < .bottom
+    vec2 x, y
 
 class Player
 
@@ -44,11 +53,5 @@ class Player
             dy = applyFriction dy
             @speed = math.clamp vec2(dx, dy), -max, max
 
-            @pos += @speed * dt
-            x, y = @pos.x, @pos.y
-
-            x = .right if x < .left
-            x = .left if x > .right
-            y = .bottom if y > .top
-            y = .top if y < .bottom
-            @pos = vec2 x, y
+        @pos += @speed * dt
+        @pos = applyBoards @pos, @win
