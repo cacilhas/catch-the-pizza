@@ -1,6 +1,7 @@
 VERSION= $(shell awk '$$1 ~ /version/ { gsub(/"/, ""); print $$3; }' conf.moon)
 UNAME= $(shell uname | tr A-Z a-z)
 
+APPNAME= pizza
 CC= moonc
 ENGINE= amulet
 EXPORT= $(ENGINE) export -r
@@ -28,30 +29,30 @@ clean:
 
 
 mrproper: clean
-	$(RM) pizza-*.zip pizza-*-android
+	$(RM) $(APPNAME)-*.zip $(APPNAME)-*-android
 
 
 %.lua: %.moon
 	$(CC) $<
 
 
-linux: pizza-$(VERSION)-linux.zip
+linux: $(APPNAME)-$(VERSION)-linux.zip
 
-pizza-$(VERSION)-linux.zip: $(TARGET)
+$(APPNAME)-$(VERSION)-linux.zip: $(TARGET)
 	$(EXPORT) -linux .
 
 
 darwin: mac
 
-mac: pizza-$(VERSION)-mac.zip
+mac: $(APPNAME)-$(VERSION)-mac.zip
 
-pizza-$(VERSION)-mac.zip: $(TARGET)
+$(APPNAME)-$(VERSION)-mac.zip: $(TARGET)
 	$(EXPORT) -mac .
 
 
 win: windows
 
-windows: pizza-$(VERSION)-windows.zip
+windows: $(APPNAME)-$(VERSION)-windows.zip
 
-pizza-$(VERSION)-windows.zip: $(TARGET)
+$(APPNAME)-$(VERSION)-windows.zip: $(TARGET)
 	$(EXPORT) -windows .
