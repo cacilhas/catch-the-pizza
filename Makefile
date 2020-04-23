@@ -1,4 +1,4 @@
-VERSION= $(shell awk '$$1 ~ /version/ { gsub(/"/, ""); print $$3; }' conf.moon)
+VERSION= $(shell awk 'BEGIN { FS = "\""; } $$1 ~ /version/ { print $$2; }' conf.moon)
 ifeq ($(OS),Windows_NT)
 	UNAME= windows
 else
