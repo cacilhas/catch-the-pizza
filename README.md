@@ -8,3 +8,7 @@ This small game is a Chase the Pizza clone, from Microsoft [MakeCode][arcade].
 
 It uses [Amulet][amulet] as engine and [Moonscript][moonscript] as programming
 language.
+
+## TODO
+
+The code was developed hurriedly, so the tests are missing.
