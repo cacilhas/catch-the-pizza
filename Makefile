@@ -1,8 +1,12 @@
 VERSION= $(shell awk '$$1 ~ /version/ { gsub(/"/, ""); print $$3; }' conf.moon)
-UNAME= $(shell uname | tr A-Z a-z)
+ifeq ($(OS),Windows_NT)
+	UNAME= windows
+else
+	UNAME= $(shell uname | tr A-Z a-z)
+endif
 
 APPNAME= pizza
-CC= moonc
+MOONC= moonc
 ENGINE= amulet
 EXPORT= $(ENGINE) export -r
 SRC= $(wildcard *.moon */*.moon)
@@ -33,7 +37,7 @@ mrproper: clean
 
 
 %.lua: %.moon
-	$(CC) $<
+	$(MOONC) $<
 
 
 linux: $(APPNAME)-$(VERSION)-linux.zip
