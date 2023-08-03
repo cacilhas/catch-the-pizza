@@ -23,6 +23,7 @@ applyBoards = (win) =>
         y = .top if y < .bottom
     vec2 x, y
 
+
 class Player
 
     pos: vec2 0
