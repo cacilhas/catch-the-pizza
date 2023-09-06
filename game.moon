@@ -18,7 +18,7 @@ class Game
         t.timer.text = "%.1f"\format @timer
 
     gameover: =>
-        return with gameover = @timer <= 0
+        return with gameover = @timer == 0
             if @playing and gameover
                 @playing = false
                 @win.scene\action am.play "resources/gameover.ogg"
