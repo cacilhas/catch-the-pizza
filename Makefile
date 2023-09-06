@@ -46,11 +46,11 @@ $(APPNAME)-$(VERSION)-linux.zip: $(TARGET)
 	$(EXPORT) -linux .
 
 
-darwin: mac
+mac: darwin
 
-mac: $(APPNAME)-$(VERSION)-mac.zip
+darwin: $(APPNAME)-$(VERSION)-darwin.zip
 
-$(APPNAME)-$(VERSION)-mac.zip: $(TARGET)
+$(APPNAME)-$(VERSION)-darwin.zip: $(TARGET)
 	$(EXPORT) -mac .
 
 
