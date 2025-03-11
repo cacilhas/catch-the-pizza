@@ -12,7 +12,7 @@ math.randomseed os.time!
 win = am.window
     title: "Catch the Pizza"
     mode: "fullscreen"
-    clear_color: vec4 1, 0, 0, 1
+    clear_color: vec4 0.133, 0.125, 0.204, 1
     lock_pointer: true
 
 timerX = win.left + 112
