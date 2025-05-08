@@ -1,4 +1,4 @@
-Copyright 2019 Rodrigo Cacilhas <batalema@cacilhas.info>
+Copyright 2019-2025 Rodrigo Cacilhas <batalema@cacilhas.cc>
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
